@@ -6,7 +6,7 @@ $(function () {
         var password = $('#password');
         var captcha = $('#captcha');
 
-        var userName = getCookie('userName');
+        var userName = getCookie('USERNAME');
         if (userName) {
             username.val(userName);
         }
@@ -115,8 +115,10 @@ $(function () {
 function rememberMe() {
     if ($('#rememberMe').prop('checked')) {
         var userName = $('#username').val();
-        cookie('userName', userName, 7);
+        if (userName) {
+            cookie('USERNAME', userName, 7);
+        }
     } else {
-        removeCookie('userName');
+        removeCookie('USERNAME');
     }
 }
